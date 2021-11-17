@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html lang="Ru">
+<head>
+	<meta charset="UTF-8">
+	<title>task Advanced JS 8.</title>
+	<link rel="stylesheet" href="">	
+</head>
+
+<body>
+	<h1>Практика Advanced JS 8.</h1>
+	<p>У нас есть время, но с ним что-то пошло не так! Я смотрю на часы, а они показывают 76 минут пятого!</p>
+	<p>Исправьте это недоразумение, пожалуйста. Примеры ниже.</p>
+   <table border="1" cellpadding="5">
+		<tr>
+			<th>Пример кода:</th>
+		</tr>
+		<tr>
+			<td>timeCorrect('09:10:01') => '09:10:01'</td>		
+		<tr>			
+			<td>timeCorrect('11:70:10') => '12:10:10'</td>
+		</tr>
+		<tr>			
+			<td>timeCorrect('19:99:09') => '20:39:09'</td>
+		</tr>
+		<tr>			
+			<td>timeCorrect('19:99:99') => '20:40:39'</td>
+		</tr>
+		<tr>			
+			<td>timeCorrect('24:01:01') => '00:01:01'</td>
+		</tr>
+		<tr>			
+			<td>timeCorrect('52:01:01') => '04:01:01'</td>
+		</tr>
+   </table>
+
+<script>
+	let timeCorrect = (str) => {		
+		let newArr = str.split(':');		
+		let arr = newArr.map( el => Number(el));
+		let day = 0;
+		
+		if (arr[2] >= 60) {			
+			arr[2] -= 60;
+			arr[1] += 1;
+		}		
+		if (arr[1] >= 120) {
+			arr[1] -= 120;
+			arr[0] += 2;
+		}		
+		if (arr[1] >= 60) {		
+			arr[1] -= 60;
+			arr[0] += 1;
+		}		
+		if (arr[0] >= 24) {			
+			day = Math.trunc(arr[0] / 24);
+			arr[0] = arr[0] - day * 24;
+		}		
+		for (let i = 0; i < 3; i++) {		
+			if (arr[i] === 0 || arr[i] === 1 || arr[i] === 2 || arr[i] === 3 || arr[i] === 4 || arr[i] === 5 || arr[i] === 6 || arr[i] === 7 || arr[i] === 8 || arr[i] === 9) {			
+				arr[i] = '0' + arr[i];
+			}
+		}	
+		arr = arr.join(':');
+		console.log(arr);
+	}
+	
+	timeCorrect('52:01:01');
+	
+</script>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html lang="Ru">
+<head>
+	<meta charset="UTF-8">
+	<title>task Advanced JS 6.</title>
+	<link rel="stylesheet" href="">	
+</head>
+
+<body>
+	<h1>Практика Advanced JS 6.</h1>
+	<p>Функция принимает строку и число, а должна возвращать усеченную версию данной строки, начиная от того числа, которое мы передаем в функцию.</p>
+	<p>Усеченные символы должны быть заменены троеточием'...'. Если ничего не было усечено, вернуть ту же строку.</p>
+   
+   <table border="1" cellpadding="5">
+		<tr>
+			<th>Пример кода:</th>
+		</tr>
+		<tr>
+			<td>solution('Testing String', 3) => 'Tes...'</td>		
+		<tr>			
+			<td>solution('Testing String', 8) => 'Testing ...'</td>
+		</tr>
+		<tr>			
+			<td>solution('Test', 8) => 'Test'</td>
+		</tr>		
+   </table>
+
+<script>
+	let solution = (str, num) => {
+		res = str;
+		if (str.length > num) {
+			res = str.slice(0, num) + '...';
+		}
+		console.log(res);
+	}
+	solution('Test', 8);
+	
+</script>
+
+</body>
+</html>

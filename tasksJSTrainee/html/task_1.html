@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html lang="Ru">
+<head>
+	<meta charset="UTF-8">
+	<title>task Advanced JS 1.</title>
+	<link rel="stylesheet" href="">	
+</head>
+
+<body>
+	<h1>Практика Advanced JS 1.</h1>
+	<p>Учитывая математическое уравнение, которое имеет *,+,-,/, переверните его так, как указано в примере.</p>
+   
+   <table border="1" cellpadding="5">
+		<tr>
+			<th>Пример кода:</th>
+		</tr>
+		<tr>
+			<td>solve("100*b/y") => "y/b*100"</td>			
+		<tr>			
+			<td>solve("a+b-c/d*30") => "30*d/c-b+a"</td>
+		</tr>
+		<tr>			
+			<td>solve("a*b/c+50") => "50+c/b*a"</td>
+		</tr>		
+   </table>
+
+<script>
+	let solve = (str) => {
+		let res = '';		
+		let arrZn = str.replace(/[^*\/+-]/gi, "").split('').reverse();
+		let arrNum = str.replace(/[*\/+-]/gi, "=").split('=').reverse();
+		
+		for (let i = 0; i < arrNum.length - 1; i++) {
+			res += (arrNum[i] + arrZn[i]);
+		}
+		return res + arrNum[arrNum.length - 1];
+	}
+	console.log(solve( "a*b/c+50" ));
+	
+</script>
+
+</body>
+</html>

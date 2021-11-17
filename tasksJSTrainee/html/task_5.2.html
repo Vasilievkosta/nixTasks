@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="Ru">
+<head>
+	<meta charset="UTF-8">
+	<title>task Advanced JS 5.</title>
+	<link rel="stylesheet" href="">	
+</head>
+
+<body>
+	<h1>Практика Advanced JS 5.2.</h1>
+	<p>Необходимо написать функцию, которая принимает строку в качестве аргумента и выводит количество гласных в этой строке.</p>
+	<p>Использовать алфавит русского языка. Необходимо написать как минимум 3 реализации функции.</p>
+	<p>Вариант 2.</p>
+	<p><b>Решение использует <i>str.replace</i>. Находятся все не гласные<i> значёк ^ </i>, которые заменяются на пустые символы и убираются из строки.</b></p>
+   
+   <table border="1" cellpadding="5">
+		<tr>
+			<th>Пример кода:</th>
+		</tr>
+		<tr>
+			<td>findVowels('Привет') => 2</td>		
+		<tr>			
+			<td>findVowels('Абракадабра') => 5</td>
+		</tr>		
+   </table>
+
+<script>
+	function findVowels (str) {
+		return str.replace(/[^аеёийоуыэюя]/gi, "").length;		
+	}
+	
+	console.log(findVowels('Абракадабра'));
+	
+</script>
+
+</body>
+</html>

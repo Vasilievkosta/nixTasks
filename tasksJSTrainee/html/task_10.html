@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="Ru">
+<head>
+	<meta charset="UTF-8">
+	<title>task Advanced JS 10.</title>
+	<link rel="stylesheet" href="">	
+</head>
+
+<body>
+	<h1>Практика Advanced JS 10.</h1>
+	<p>Создайте функцию, которая проверяет пароль (переданный в виде строки), чтобы убедиться, что он соответствует следующим требованиям:</p>
+	<ol>
+		<li>От 8 до 20 символов.</li>
+		<li>Содержит только следующие символы (и хотя бы по одному из каждой категории): заглавные буквы, строчные буквы, цифры, специальные символы из !@#$%^&*?.</li>
+	</ol>
+   <table border="1" cellpadding="5">
+		<tr>
+			<th>Пример кода:</th>
+		</tr>
+		<tr>
+			<td>check_password("") => "not valid"</td>		
+		<tr>			
+			<td>check_password("password") =>"not valid"</td>
+		</tr>
+		<tr>			
+			<td>check_password("P1@p") => "not valid"</td>
+		</tr>
+		<tr>			
+			<td>check_password("P1@pP1@p") => "valid"</td>
+		</tr>
+		<tr>			
+			<td>check_password("P1@pP1@pP1@pP1@pP1@pP1@p") => "not valid"</td>
+		</tr>
+		<tr>			
+			<td>check_password("Paaaaaa222!!!") => "valid"</td>
+		</tr>
+   </table>
+
+<script>
+	let check_password = (password) => {
+		if (password.length > 20) return 'not valid';
+		
+		let reg = /(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z!@#$%^&*]{8,}/g;
+		return reg.test(password) ? 'valid' : 'not valid';		
+	}
+	
+	console.log( check_password( 'Paaaaaa222!!!' ) );	
+	
+</script>
+
+</body>
+</html>

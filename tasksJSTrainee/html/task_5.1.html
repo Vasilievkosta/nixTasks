@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html lang="Ru">
+<head>
+	<meta charset="UTF-8">
+	<title>task Advanced JS 5.</title>
+	<link rel="stylesheet" href="">	
+</head>
+
+<body>
+	<h1>Практика Advanced JS 5.1.</h1>
+	<p>Необходимо написать функцию, которая принимает строку в качестве аргумента и выводит количество гласных в этой строке.</p>
+	<p>Использовать алфавит русского языка. Необходимо написать как минимум 3 реализации функции.</p>
+	<p>Вариант 1.</p>
+	<p><b>Решение использует конструкцию <i>str.match</i>, но она может вернуть <i>null</i>, поэтому проверить через тернарный оператор.</b></p>
+   
+   <table border="1" cellpadding="5">
+		<tr>
+			<th>Пример кода:</th>
+		</tr>
+		<tr>
+			<td>findVowels('Привет') => 2</td>		
+		<tr>			
+			<td>findVowels('Абракадабра') => 5</td>
+		</tr>		
+   </table>
+
+<script>
+	function findVowels (str) {
+		let count = str.match(/[аеёийоуыэюя]/gi);
+		return (count === null ? 0 : count.length);
+	}
+	
+	console.log(findVowels('Абракадабра'));
+	
+</script>
+
+</body>
+</html>
