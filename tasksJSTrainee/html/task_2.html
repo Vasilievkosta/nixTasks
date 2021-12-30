@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html lang="Ru">
+<head>
+	<meta charset="UTF-8">
+	<title>task Advanced JS 2.</title>
+	<link rel="stylesheet" href="">	
+</head>
+
+<body>
+	<h1>Практика Advanced JS 2.</h1>
+	<p>Напишите функцию, которая принимает две строки и проверяет, отличается ли второе слово от первого слова только одним символом.</p>
+   
+   <table border="1" cellpadding="5">
+		<tr>
+			<th>Пример кода:</th>
+		</tr>
+		<tr>
+			<td>mispelled('versed', 'xersed') => true</td>			
+		<tr>			
+			<td>mispelled('versed', 'applb') => false</td>
+		</tr>
+		<tr>			
+			<td>mispelled('versed', 'v5rsed') => true</td>
+		</tr>
+		<tr>			
+			<td>mispelled('1versed', 'versed') => true</td>
+		</tr>
+		<tr>			
+			<td>mispelled('versed', 'versed1') => true</td>
+		</tr>
+		<tr>			
+			<td>mispelled('versed', 'aversed') => true</td>
+		</tr>
+		<tr>			
+			<td>mispelled('aaversed', 'versed') => false</td>
+		</tr>
+		<tr>			
+			<td>mispelled('versed', 'aaversed') => false</td>
+		</tr>
+   </table>
+
+<script>	
+	let mispelled = (str1, str2) => {
+		let count = 0;
+		if (str1.length - str2.length === 0) {		
+			for (let i = 0; i < str1.length; i++) {
+				if (str1[i] !== str2[i]) {
+					count++;
+				}
+			}
+				return (count === 1);
+		} else {
+			
+			if (Math.abs(str1.length - str2.length) === 1) {			
+			let regexp;
+			if (str1.length < str2.length) {
+				regexp = new RegExp(str1);
+			return ( regexp.test(str2) );
+			} else {
+				regexp = new RegExp(str2);
+			return ( regexp.test(str1) );
+			}			
+			} else {
+				return false;
+			}
+		}
+	}
+	
+	console.log( mispelled('versed', 'v5rsed') );
+</script>
+
+</body>
+</html>
