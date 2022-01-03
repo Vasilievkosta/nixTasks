@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html lang="Ru">
+<head>
+	<meta charset="UTF-8">
+	<title>task Advanced JS 7.</title>
+	<link rel="stylesheet" href="">	
+</head>
+
+<body>
+	<h1>Практика Advanced JS 7.</h1>
+	<p>Вам будет дана строка в нижнем регистре и число, и ваша задача будет заключаться в том, чтобы удалить столько символов в строке, сколько указанно в числе, используя следующее правило:</p>
+	<p>сначала удалите все буквы «a», затем буквы «b», затем «c» и т. д. Начинайте удаление с крайнего левого символа.</p>
+   
+   <table border="1" cellpadding="5">
+		<tr>
+			<th>Пример кода:</th>
+		</tr>
+		<tr>
+			<td>solve('abracadabra', 1) => 'bracadabra' # удалили один символ 'a'</td>		
+		<tr>			
+			<td>solve('abracadabra', 2) => 'brcadabra' # удалили 2 символа 'a'</td>
+		</tr>
+		<tr>			
+			<td>solve('abracadabra', 6) => 'rcdbr' # удалили 5 символов 'a', и т.к символов 'а' больше не осталось, удалили 1 символ 'b'</td>
+		</tr>
+		<tr>			
+			<td>solve('abracadabra', 8) => 'rdr'</td>
+		</tr>
+		<tr>			
+			<td>solve('abracadabra',50) => ''</td>
+		</tr>
+   </table>
+
+<script>
+let symb = 97;
+	
+let solve = (str, num) => {
+	if(num >= str.length) return "''";
+	let arr = [];			
+		for (let i = 0; i < str.length; i++) {
+			if(str[i].codePointAt(0) === symb && num > 0) {
+				arr.push('');
+				num--;
+			} else {
+				arr.push(str[i]);
+			}			
+		}
+	let res = arr.join('');		
+		
+	if (num === 0 || res.length === 0) {
+		return res;
+	} else {
+		symb++;
+		return solve(res, num);
+	}	
+}
+	
+	
+	console.log( solve('aabzxab',3));
+	
+</script>
+
+</body>
+</html>
